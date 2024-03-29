@@ -1,0 +1,23 @@
+// Color variables
+$black: #171717;
+$grey: #242424;
+$grey-light: #b7b7b7;
+$white: #ffffff;
+
+.wrapper {
+  max-width: 1060px;
+  width: 90%;
+  margin: auto;
+}
+
+a,
+button {
+  -moz-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+  -i-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+a {
+  text-decoration: none;
+}

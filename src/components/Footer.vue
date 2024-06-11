@@ -1,4 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+
+const copyrightYear = ref();
+
+onMounted(() => {
+  const currentYear = new Date().getFullYear();
+  copyrightYear.value.textContent = currentYear;
+});
+</script>
 
 <template>
   <footer>
@@ -69,7 +78,7 @@
     </div>
     <div class="copyright">
       <div class="wrapper">
-        <p>© Copyright 2024, Fradinho.</p>
+        <p>© Copyright <span ref="copyrightYear"></span>, Fradinho.</p>
       </div>
     </div>
   </footer>

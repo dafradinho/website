@@ -32,6 +32,11 @@
                 ><img src="../assets/twitterx.svg" alt="Twitter Logo"
               /></a>
             </li>
+            <li>
+              <a href="#"
+                ><img src="../assets/twitch.svg" alt="Twitch Logo"
+              /></a>
+            </li>
           </ul>
         </div>
       </div>

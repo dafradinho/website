@@ -5,8 +5,7 @@ $grey-light: #b7b7b7;
 $white: #ffffff;
 
 .wrapper {
-  max-width: 1060px;
-  width: 90%;
+  width: calc(100% - 120px);
   margin: auto;
 }
 

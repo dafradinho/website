@@ -3,7 +3,7 @@
 <template>
   <header>
     <div class="wrapper">
-      <div class="header-wrapper">
+      <div class="header-content">
         <h1 class="logo"><a href="#">Fradinho</a></h1>
         <nav>
           <ul>
@@ -27,7 +27,7 @@ header {
   border-radius: 10px;
   background-color: $black;
 
-  .header-wrapper {
+  .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;

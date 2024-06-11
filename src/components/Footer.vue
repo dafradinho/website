@@ -40,7 +40,7 @@
           <ul>
             <li><p class="footer-title">About</p></li>
             <li><a href="#" class="footer-link">Intro</a></li>
-            <li><a href="#" class="footer-link">Path</a></li>
+            <li><a href="#" class="footer-link">Experience</a></li>
             <li><a href="#" class="footer-link">Contact</a></li>
           </ul>
           <ul>
@@ -75,7 +75,9 @@
 
 footer {
   padding: 30px 0 0;
+  border-radius: 10px;
   margin-top: 60px;
+  overflow: hidden;
   background-color: $black;
 
   .footer-top {

@@ -24,6 +24,7 @@
 
 header {
   padding: 20px 0;
+  border-radius: 10px;
   background-color: $black;
 
   .header-wrapper {

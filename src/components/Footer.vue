@@ -91,7 +91,7 @@ footer {
   padding: 30px 0 0;
   border-radius: 10px;
   overflow: hidden;
-  background-color: $black;
+  background-color: $grey-dark;
 
   .footer-top {
     display: flex;
@@ -176,7 +176,7 @@ footer {
   .copyright {
     padding: 10px 0;
     margin-top: 30px;
-    background-color: $grey-dark;
+    background-color: $grey;
     text-align: center;
 
     p {

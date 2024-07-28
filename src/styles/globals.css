@@ -6,10 +6,10 @@
   font-stretch: 75% 125%;
 }
 
-body {
-  background-color: #2b2b2b;
-}
-
 html {
   font-family: "Mona Sans";
+}
+
+body {
+  background-color: #171717;
 }

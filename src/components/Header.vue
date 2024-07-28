@@ -26,7 +26,7 @@ header {
   padding: 20px 0;
   border-radius: 10px;
   margin-bottom: 30px;
-  background-color: $black;
+  background-color: $grey-dark;
 
   .header-content {
     display: flex;

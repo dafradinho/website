@@ -12,7 +12,9 @@ import Footer from "./components/Footer.vue";
   </div>
 </template>
 
-<style scoped>
+<style>
+@import "styles/globals.scss";
+
 .container {
   width: calc(100% - 20px);
   max-width: 1320px;

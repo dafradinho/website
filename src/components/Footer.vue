@@ -90,7 +90,6 @@ onMounted(() => {
 footer {
   padding: 30px 0 0;
   border-radius: 10px;
-  margin-top: 60px;
   overflow: hidden;
   background-color: $black;
 
@@ -121,6 +120,13 @@ footer {
 
           a {
             display: block;
+
+            &:hover {
+              img {
+                filter: invert(40%) sepia(40%) saturate(40%) hue-rotate(90deg)
+                  brightness(130%) contrast(100%);
+              }
+            }
 
             img {
               width: 30px;
@@ -154,7 +160,13 @@ footer {
           }
 
           .footer-link {
+            padding-bottom: 1px;
+            border-bottom: 1px solid transparent;
             color: $grey-light;
+
+            &:hover {
+              border-color: $grey-light;
+            }
           }
         }
       }
@@ -164,7 +176,7 @@ footer {
   .copyright {
     padding: 10px 0;
     margin-top: 30px;
-    background-color: $grey;
+    background-color: $grey-dark;
     text-align: center;
 
     p {

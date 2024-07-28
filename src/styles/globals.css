@@ -10,6 +10,10 @@ html {
   font-family: "Mona Sans";
 }
 
-body {
+body[data-dark] {
   background-color: #171717;
+}
+
+body[data-light] {
+  background-color: #fafafa;
 }

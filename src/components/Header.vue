@@ -20,32 +20,15 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../styles/globals.scss";
-
 header {
   padding: 20px 0;
   border-radius: 10px;
   margin-bottom: 30px;
-  background-color: $grey-dark;
 
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .logo,
-  nav {
-    a {
-      color: white;
-    }
-  }
-
-  .logo {
-    a {
-      font-weight: 900;
-      font-size: 24px;
-    }
   }
 
   nav {
@@ -64,10 +47,6 @@ header {
           border-bottom: 2px solid transparent;
           font-weight: 500;
           font-size: 18px;
-
-          &:hover {
-            border-color: $white;
-          }
         }
       }
     }

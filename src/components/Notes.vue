@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="notes"></div>
+  <div class="notes wrapper"></div>
 </template>
 
 <style lang="scss" scoped>

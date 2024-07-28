@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="podcast"></div>
+  <div class="podcast wrapper"></div>
 </template>
 
 <style lang="scss" scoped>

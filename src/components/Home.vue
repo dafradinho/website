@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="home">banner text text-image image</div>
+  <div class="home wrapper"></div>
 </template>
 
 <style lang="scss" scoped>

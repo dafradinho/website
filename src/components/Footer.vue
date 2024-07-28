@@ -85,28 +85,17 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "../styles/globals.scss";
-
 footer {
   padding: 30px 0 0;
   border-radius: 10px;
   margin-top: 30px;
   overflow: hidden;
-  background-color: $grey-dark;
 
   .footer-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-
-    .logo {
-      a {
-        font-weight: 900;
-        font-size: 24px;
-        color: white;
-      }
-    }
 
     .socials {
       ul {
@@ -122,17 +111,8 @@ footer {
           a {
             display: block;
 
-            &:hover {
-              img {
-                filter: invert(40%) sepia(40%) saturate(40%) hue-rotate(90deg)
-                  brightness(130%) contrast(100%);
-              }
-            }
-
             img {
               width: 30px;
-              filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(90deg)
-                brightness(100%) contrast(100%);
             }
           }
         }
@@ -157,17 +137,11 @@ footer {
             margin-bottom: 16px;
             font-weight: 500;
             font-size: 18px;
-            color: white;
           }
 
           .footer-link {
             padding-bottom: 1px;
             border-bottom: 1px solid transparent;
-            color: $grey-light;
-
-            &:hover {
-              border-color: $grey-light;
-            }
           }
         }
       }
@@ -177,13 +151,11 @@ footer {
   .copyright {
     padding: 10px 0;
     margin-top: 30px;
-    background-color: $grey;
     text-align: center;
 
     p {
       font-weight: 500;
       font-size: 14px;
-      color: white;
     }
   }
 }

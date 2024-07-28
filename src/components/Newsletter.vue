@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="newsletter"></div>
+  <div class="newsletter wrapper"></div>
 </template>
 
 <style lang="scss" scoped>

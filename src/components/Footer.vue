@@ -90,6 +90,7 @@ onMounted(() => {
 footer {
   padding: 30px 0 0;
   border-radius: 10px;
+  margin-top: 30px;
   overflow: hidden;
   background-color: $grey-dark;
 

@@ -4,7 +4,7 @@
   <header>
     <div class="wrapper">
       <div class="header-content">
-        <h1 class="logo"><a href="#">Fradinho</a></h1>
+        <p class="logo"><a href="#">Fradinho</a></p>
         <nav>
           <ul>
             <li><a href="#">About</a></li>

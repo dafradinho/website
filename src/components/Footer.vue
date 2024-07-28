@@ -13,7 +13,7 @@ onMounted(() => {
   <footer>
     <div class="wrapper">
       <div class="footer-top">
-        <h1 class="logo"><a href="#">Fradinho</a></h1>
+        <p class="logo"><a href="#">Fradinho</a></p>
         <div class="socials">
           <ul>
             <li>

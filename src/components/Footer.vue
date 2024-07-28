@@ -1,5 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import json from "../json/navigation.json";
+
+const data = ref({
+  json,
+});
 
 const copyrightYear = ref();
 
@@ -13,37 +18,14 @@ onMounted(() => {
   <footer>
     <div class="wrapper">
       <div class="footer-top">
-        <p class="logo"><a href="#">Fradinho</a></p>
+        <p class="logo">
+          <a :href="data.json.logo.link">{{ data.json.logo.title }}</a>
+        </p>
         <div class="socials">
           <ul>
-            <li>
-              <a href="#"
-                ><img src="../assets/github.svg" alt="GitHub Logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../assets/linkedin.svg" alt="LinkedIn Logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../assets/youtube.svg" alt="YouTube Logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../assets/instagram.svg" alt="Instagram Logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../assets/twitterx.svg" alt="Twitter Logo"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img src="../assets/twitch.svg" alt="Twitch Logo"
+            <li v-for="social in data.json.socials">
+              <a :href="social.link"
+                ><img :src="social.source" :alt="social.alt"
               /></a>
             </li>
           </ul>
@@ -51,27 +33,17 @@ onMounted(() => {
       </div>
       <div class="footer-bottom">
         <nav>
-          <ul>
-            <li><p class="footer-title">About</p></li>
-            <li><a href="#" class="footer-link">Intro</a></li>
-            <li><a href="#" class="footer-link">Experience</a></li>
-            <li><a href="#" class="footer-link">Contact</a></li>
-          </ul>
-          <ul>
-            <li><p class="footer-title">Notes</p></li>
-          </ul>
-          <ul>
-            <li><p class="footer-title">Projects</p></li>
-          </ul>
-          <ul>
-            <li><p class="footer-title">Podcast</p></li>
-            <li><a href="#" class="footer-link">Concept</a></li>
-            <li><a href="#" class="footer-link">When</a></li>
-          </ul>
-          <ul>
-            <li><p class="footer-title">Newsletter</p></li>
-            <li><a href="#" class="footer-link">Why</a></li>
-            <li><a href="#" class="footer-link">Subscribe</a></li>
+          <ul v-for="item in data.json.navigation">
+            <li>
+              <a :href="item.link" class="footer-link-title">{{
+                item.title
+              }}</a>
+            </li>
+            <li v-for="section in item.sections">
+              <a :href="section.link" class="footer-link">{{
+                section.title
+              }}</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -133,7 +105,9 @@ footer {
             margin-bottom: 0;
           }
 
-          .footer-title {
+          .footer-link-title {
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
             margin-bottom: 16px;
             font-weight: 500;
             font-size: 18px;

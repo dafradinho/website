@@ -1,17 +1,24 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import json from "../json/navigation.json";
+
+const data = ref({
+  json,
+});
+</script>
 
 <template>
   <header>
     <div class="wrapper">
       <div class="header-content">
-        <p class="logo"><a href="#">Fradinho</a></p>
+        <p class="logo">
+          <a :href="data.json.logo.link">{{ data.json.logo.title }}</a>
+        </p>
         <nav>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Notes</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Podcast</a></li>
-            <li><a href="#">Newsletter</a></li>
+            <li v-for="item in data.json.navigation">
+              <a :href="item.link">{{ item.title }}</a>
+            </li>
           </ul>
         </nav>
       </div>

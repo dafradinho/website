@@ -85,6 +85,11 @@ a {
       nav {
         ul {
           li {
+            .footer-link-title {
+              &:hover {
+                border-color: $white;
+              }
+            }
             .footer-link {
               color: $grey-light;
 

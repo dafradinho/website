@@ -1,0 +1,94 @@
+{
+  "logo": {
+    "title": "Fradinho",
+    "link": "/"
+  },
+  "navigation": [
+    {
+      "title": "About",
+      "link": "About.vue",
+      "sections": [
+        {
+          "title": "Intro",
+          "link": "About.vue#intro"
+        },
+        {
+          "title": "Experience",
+          "link": "About.vue#experience"
+        },
+        {
+          "title": "Contact",
+          "link": "About.vue#contact"
+        }
+      ]
+    },
+    {
+      "title": "Notes",
+      "link": "Notes.vue"
+    },
+    {
+      "title": "Projects",
+      "link": "Projects.vue"
+    },
+    {
+      "title": "Podcast",
+      "link": "Podcast.vue",
+      "sections": [
+        {
+          "title": "Concept",
+          "link": "Podcast.vue#concept"
+        },
+        {
+          "title": "When",
+          "link": "Podcast.vue#when"
+        }
+      ]
+    },
+    {
+      "title": "Newsletter",
+      "link": "Newsletter.vue",
+      "sections": [
+        {
+          "title": "Why",
+          "link": "Newsletter.vue#why"
+        },
+        {
+          "title": "Subscribe",
+          "link": "Newsletter.vue#subscribe"
+        }
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "source": "src/assets/github.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "GitHub Logo"
+    },
+    {
+      "source": "src/assets/linkedin.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "LinkedIn Logo"
+    },
+    {
+      "source": "src/assets/youtube.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "YouTube Logo"
+    },
+    {
+      "source": "src/assets/instagram.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "Instagram Logo"
+    },
+    {
+      "source": "src/assets/twitterx.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "Twitter Logo"
+    },
+    {
+      "source": "src/assets/twitch.svg",
+      "link": "https://github.com/dafradinho",
+      "alt": "Twitch Logo"
+    }
+  ]
+}

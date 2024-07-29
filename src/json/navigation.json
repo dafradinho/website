@@ -61,32 +61,32 @@
   ],
   "socials": [
     {
-      "source": "../public/github.svg",
+      "source": "src/assets/github.svg",
       "link": "https://github.com/dafradinho",
       "alt": "GitHub Logo"
     },
     {
-      "source": "../public/linkedin.svg",
+      "source": "src/assets/linkedin.svg",
       "link": "https://github.com/dafradinho",
       "alt": "LinkedIn Logo"
     },
     {
-      "source": "../public/youtube.svg",
+      "source": "src/assets/youtube.svg",
       "link": "https://github.com/dafradinho",
       "alt": "YouTube Logo"
     },
     {
-      "source": "../public/instagram.svg",
+      "source": "src/assets/instagram.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Instagram Logo"
     },
     {
-      "source": "../public/twitterx.svg",
+      "source": "src/assets/twitterx.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Twitter Logo"
     },
     {
-      "source": "../public/twitch.svg",
+      "source": "src/assets/twitch.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Twitch Logo"
     }

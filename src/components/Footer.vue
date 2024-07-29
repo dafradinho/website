@@ -25,7 +25,7 @@ onMounted(() => {
           <ul>
             <li v-for="social in data.json.socials">
               <a :href="social.link"
-                ><img :src="'../assets/' + social.source" :alt="social.alt"
+                ><img :src="social.source" :alt="social.alt"
               /></a>
             </li>
           </ul>

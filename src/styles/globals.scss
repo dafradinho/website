@@ -47,7 +47,8 @@ a {
       ul {
         li {
           a {
-            &:hover {
+            &:hover,
+            &.router-link-active {
               border-color: $white;
             }
           }

@@ -6,55 +6,55 @@
   "navigation": [
     {
       "title": "About",
-      "link": "About.vue",
+      "link": "/about",
       "sections": [
         {
           "title": "Intro",
-          "link": "About.vue#intro"
+          "link": "/about#intro"
         },
         {
           "title": "Experience",
-          "link": "About.vue#experience"
+          "link": "/about#experience"
         },
         {
           "title": "Contact",
-          "link": "About.vue#contact"
+          "link": "/about#contact"
         }
       ]
     },
     {
       "title": "Notes",
-      "link": "Notes.vue"
+      "link": "/notes"
     },
     {
       "title": "Projects",
-      "link": "Projects.vue"
+      "link": "/projects"
     },
     {
       "title": "Podcast",
-      "link": "Podcast.vue",
+      "link": "/podcast",
       "sections": [
         {
           "title": "Concept",
-          "link": "Podcast.vue#concept"
+          "link": "/podcast#concept"
         },
         {
           "title": "When",
-          "link": "Podcast.vue#when"
+          "link": "/podcast#when"
         }
       ]
     },
     {
       "title": "Newsletter",
-      "link": "Newsletter.vue",
+      "link": "/newsletter",
       "sections": [
         {
           "title": "Why",
-          "link": "Newsletter.vue#why"
+          "link": "/newsletter#why"
         },
         {
           "title": "Subscribe",
-          "link": "Newsletter.vue#subscribe"
+          "link": "/newsletter#subscribe"
         }
       ]
     }

@@ -19,7 +19,9 @@ onMounted(() => {
     <div class="wrapper">
       <div class="footer-top">
         <p class="logo">
-          <a :href="data.json.logo.link">{{ data.json.logo.title }}</a>
+          <RouterLink :to="data.json.logo.link">{{
+            data.json.logo.title
+          }}</RouterLink>
         </p>
         <div class="socials">
           <ul>
@@ -35,14 +37,14 @@ onMounted(() => {
         <nav>
           <ul v-for="item in data.json.navigation">
             <li>
-              <a :href="item.link" class="footer-link-title">{{
+              <RouterLink :to="item.link" class="footer-link-title">{{
                 item.title
-              }}</a>
+              }}</RouterLink>
             </li>
             <li v-for="section in item.sections">
-              <a :href="section.link" class="footer-link">{{
+              <RouterLink :to="section.link" class="footer-link">{{
                 section.title
-              }}</a>
+              }}</RouterLink>
             </li>
           </ul>
         </nav>

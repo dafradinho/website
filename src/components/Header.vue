@@ -12,12 +12,14 @@ const data = ref({
     <div class="wrapper">
       <div class="header-content">
         <p class="logo">
-          <a :href="data.json.logo.link">{{ data.json.logo.title }}</a>
+          <RouterLink :to="data.json.logo.link">{{
+            data.json.logo.title
+          }}</RouterLink>
         </p>
         <nav>
           <ul>
             <li v-for="item in data.json.navigation">
-              <a :href="item.link">{{ item.title }}</a>
+              <RouterLink :to="item.link">{{ item.title }}</RouterLink>
             </li>
           </ul>
         </nav>

@@ -4,3 +4,10 @@ $grey-dark: #1e1e1e;
 $grey: #242424;
 $grey-light: #b7b7b7;
 $white: #fafafa;
+
+@mixin animation {
+  -moz-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+  -i-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}

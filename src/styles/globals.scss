@@ -12,10 +12,7 @@ h6 {
 a,
 button,
 img {
-  -moz-transition: all 0.25s ease-out;
-  -webkit-transition: all 0.25s ease-out;
-  -i-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
+  @include animation;
 }
 
 a {
@@ -38,18 +35,19 @@ a {
   a {
     color: $white;
   }
-  // might change to *
 
   header {
     background-color: $grey-dark;
 
     nav {
-      ul {
-        li {
-          a {
-            &:hover,
-            &.router-link-active {
-              border-color: $white;
+      .header-menu {
+        .menu {
+          li {
+            a {
+              &:hover,
+              &.router-link-active {
+                border-color: $white;
+              }
             }
           }
         }

@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createMemoryHistory, createRouter } from "vue-router";
 
 import Home from "./components/Home.vue";
 import About from "./components/About.vue";
@@ -29,7 +29,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createMemoryHistory(),
   routes,
 });
 

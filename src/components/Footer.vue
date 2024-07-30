@@ -73,9 +73,14 @@ footer {
     align-items: center;
     margin-bottom: 30px;
 
+    @media only screen and (max-width: $mqMobile) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
     .logo {
       @media only screen and (max-width: $mqMobile) {
-        display: none;
+        margin-bottom: 10px;
       }
     }
 

@@ -58,7 +58,7 @@ header {
         input {
           display: none;
 
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             display: block;
             width: 36px;
             height: 30px;
@@ -79,7 +79,7 @@ header {
         }
 
         span {
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             display: block;
             width: 34px;
             height: 4px;
@@ -95,24 +95,24 @@ header {
           }
 
           &:last-of-type {
-            @media only screen and (max-width: 1024px) {
+            @media only screen and (max-width: $mqTablet) {
               margin-bottom: 0;
             }
           }
         }
 
         input:checked ~ span {
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             width: 24px;
           }
         }
         input:checked ~ span:nth-last-child(3) {
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             width: 34px;
           }
         }
         input:checked ~ .menu {
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             display: flex;
             transform: none;
           }
@@ -121,7 +121,7 @@ header {
         .menu {
           display: flex;
 
-          @media only screen and (max-width: 1024px) {
+          @media only screen and (max-width: $mqTablet) {
             display: none;
             position: absolute;
             flex-direction: column;
@@ -141,7 +141,7 @@ header {
           li {
             margin-right: 20px;
 
-            @media only screen and (max-width: 1024px) {
+            @media only screen and (max-width: $mqTablet) {
               margin-right: 0;
               margin-bottom: 20px;
             }
@@ -149,7 +149,7 @@ header {
             &:last-of-type {
               margin-right: 0;
 
-              @media only screen and (max-width: 1024px) {
+              @media only screen and (max-width: $mqTablet) {
                 margin-bottom: 0;
               }
             }

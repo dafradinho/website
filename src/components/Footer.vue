@@ -59,6 +59,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@import "../styles/variables.scss";
+
 footer {
   padding: 30px 0 0;
   border-radius: 10px;
@@ -70,6 +72,12 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+
+    .logo {
+      @media only screen and (max-width: $mqMobile) {
+        display: none;
+      }
+    }
 
     .socials {
       ul {
@@ -99,7 +107,21 @@ footer {
       display: flex;
       justify-content: space-between;
 
+      @media only screen and (max-width: $mqMobile) {
+        flex-direction: column;
+      }
+
       ul {
+        @media only screen and (max-width: $mqMobile) {
+          margin-bottom: 50px;
+        }
+
+        &:last-of-type {
+          @media only screen and (max-width: $mqMobile) {
+            margin-bottom: 0;
+          }
+        }
+
         li {
           margin-bottom: 16px;
 

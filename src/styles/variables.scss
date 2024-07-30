@@ -5,6 +5,11 @@ $grey: #242424;
 $grey-light: #b7b7b7;
 $white: #fafafa;
 
+// Media Queries
+$mqTablet: 1024px;
+$mqMobile: 560px;
+
+// Mixins
 @mixin animation {
   -moz-transition: all 0.25s ease-out;
   -webkit-transition: all 0.25s ease-out;

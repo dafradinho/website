@@ -1,0 +1,84 @@
+{
+  "resourcesInfo": {
+    "config": {
+      "direction": "left"
+    },
+    "image": {
+      "src": "/src/assets/notes/cat.jpeg",
+      "alt": "Cat"
+    },
+    "copy": {
+      "headline": "Resources",
+      "subline": "Text and Media Subline",
+      "text": "<b>Lorem ipsum dolor</b> sit, <a href='https://www.google.com' data-target='blankPage'>consectetur</a> adipiscing elit, <i>sed do eiusmod tempor incididunt</i> ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis <mark>nostrud exercitation ullamco laboris nisi</mark> ut aliquip ex <del>ea commodo</del> consequat. Duis aute <ins>irure dolor in reprehenderit</ins> in voluptate velit esse cillum dolore eu <a href='https://www.bing.com' data-target='blankPage'>fugiat</a> nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  },
+  "overlays": {
+    "headline": "Overlays",
+    "get": "See Overlay",
+    "items": [
+      {
+        "copy": {
+          "headline": "Resource Headline One",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "anchor": {
+          "link": "https://google.com",
+          "target": "_blank"
+        },
+        "image": {
+          "src": "/src/assets/images/task.png",
+          "alt": "Cat"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "headline": "Scripts",
+    "get": "See Script",
+    "items": [
+      {
+        "copy": {
+          "headline": "Resource Headline One",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "anchor": {
+          "link": "https://google.com",
+          "target": "_blank"
+        },
+        "image": {
+          "src": "/src/assets/images/task.png",
+          "alt": "Cat"
+        }
+      }
+    ]
+  },
+  "various": {
+    "headline": "Various",
+    "get": "See Resource",
+    "items": [
+      {
+        "copy": {
+          "headline": "Resource Headline One",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        "anchor": {
+          "link": "https://google.com",
+          "target": "_blank"
+        },
+        "image": {
+          "src": "/src/assets/images/task.png",
+          "alt": "Cat"
+        }
+      }
+    ]
+  },
+  "general": {
+    "recent": "Recent Resources",
+    "explore": {
+      "link": "/resources",
+      "target": "_self",
+      "text": "Explore All Resources"
+    }
+  }
+}

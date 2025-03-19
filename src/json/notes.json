@@ -1,0 +1,23 @@
+{
+  "bio": {
+    "image": {
+      "src": "/src/assets/photos/profile-photo.webp",
+      "alt": "Fradinho Photo"
+    },
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde recusandae dolorum nostrum debitis, laborum numquam illo quisquam fugit sint, quam ipsam? Quae expedita quaerat in illum earum optio esse laborum."
+  },
+  "others": {
+    "recent": "Recent Notes",
+    "continue": "Continue Reading",
+    "explore": {
+      "link": "/notes",
+      "target": "_self",
+      "text": "Explore All Notes"
+    },
+    "homepage": {
+      "link": "/",
+      "target": "_self",
+      "text": "Go To Homepage"
+    }
+  }
+}

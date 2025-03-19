@@ -1,0 +1,71 @@
+{
+  "aboutme": {
+    "copy": {
+      "headline": "Hello! I'm Fradinho!",
+      "text": "Lorem ipsum dolor sit amet, <span>consectetur</span> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    "facts": {
+      "headline": "Quick Facts About Me",
+      "items": [
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet."
+        }
+      ]
+    }
+  },
+  "timeline": {
+    "headline": "Timeline",
+    "items": [
+      {
+        "year": "2015 - 2017",
+        "headline": "Timeline Headline Four",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "keywords": ["2015/17 key one", "2015/17 key two"]
+      },
+      {
+        "year": "2017 - 2019",
+        "headline": "Timeline Headline Three",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "keywords": ["2017/19 key one", "2017/19 key two"]
+      },
+      {
+        "year": "2019 - 2022",
+        "headline": "Timeline Headline Two",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "keywords": ["2019/22 key one", "2019/22 key two"]
+      },
+      {
+        "year": "2022 - now",
+        "headline": "Timeline Headline One",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "keywords": ["2022/now key one", "2022/now key two"]
+      }
+    ]
+  },
+  "contact": {
+    "copy": {
+      "headline": "Contact Me",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    "anchor": {
+      "text": "MailTo",
+      "link": "mailto:",
+      "target": "_blank"
+    }
+  }
+}

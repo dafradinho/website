@@ -6,14 +6,19 @@
   font-stretch: 75% 125%;
 }
 
-html {
+body.no-scroll {
+  overflow: hidden;
+}
+
+html,
+button {
   font-family: "Mona Sans";
 }
 
-body[data-dark] {
+body[data-theme="dark"] {
   background-color: #171717;
 }
 
-body[data-light] {
-  background-color: #fafafa;
+body[data-theme="light"] {
+  background-color: #f1f1f1;
 }

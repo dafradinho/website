@@ -1,58 +1,106 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import json from "../json/navigation.json";
+import { loadNotes } from "../utils/loadNotes";
+import navigation from "../json/navigation.json";
 
 const data = ref({
-  json,
+  navigation,
+  notes: [],
 });
 
-const copyrightYear = ref();
+const { logo, navigationFooter, socials, others } = data.value.navigation;
 
-onMounted(() => {
+const lastThreeNotes = ref([]);
+
+onMounted(async () => {
+  data.value.notes = await loadNotes();
+  if (Array.isArray(data.value.notes)) {
+    lastThreeNotes.value = data.value.notes.slice(-3).reverse();
+  }
+
   const currentYear = new Date().getFullYear();
   copyrightYear.value.textContent = currentYear;
 });
+
+const copyrightYear = ref();
 </script>
 
 <template>
   <footer>
     <div class="wrapper">
-      <div class="footer-top">
-        <p class="logo">
-          <RouterLink :to="data.json.logo.link">{{
-            data.json.logo.title
-          }}</RouterLink>
-        </p>
-        <div class="socials">
-          <ul>
-            <li v-for="social in data.json.socials">
-              <a :href="social.link" target="_blank"
-                ><img :src="social.source" :alt="social.alt"
-              /></a>
-            </li>
-          </ul>
+      <div class="footer-wrapper">
+        <div class="footer-top">
+          <p class="logo">
+            <RouterLink :to="logo.link">{{ logo.title }}</RouterLink>
+          </p>
+          <div class="socials">
+            <ul>
+              <li v-for="social in socials" :key="social.link">
+                <a :href="social.link" :aria-label="social.alt" target="_blank">
+                  <img :src="social.source" :alt="social.alt" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <nav>
-          <ul v-for="item in data.json.navigation">
-            <li>
-              <RouterLink :to="item.link" class="footer-link-title">{{
-                item.title
-              }}</RouterLink>
-            </li>
-            <li v-for="section in item.sections">
-              <RouterLink :to="section.link" class="footer-link">{{
-                section.title
-              }}</RouterLink>
-            </li>
-          </ul>
-        </nav>
+        <div class="footer-bottom">
+          <nav>
+            <ul v-for="item in navigationFooter" :key="item.link">
+              <li>
+                <RouterLink :to="item.link" class="footer-link-title">{{
+                  item.title
+                }}</RouterLink>
+              </li>
+              <li v-for="section in item.sections" :key="section.link">
+                <RouterLink :to="section.link" class="footer-link">{{
+                  section.title
+                }}</RouterLink>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <RouterLink :to="'/notes'" class="footer-link-title">{{
+                  others.notes.label
+                }}</RouterLink>
+              </li>
+              <li v-for="note in lastThreeNotes" :key="note.filename">
+                <RouterLink
+                  :to="{ name: 'note-detail', params: { id: note.filename } }"
+                  class="footer-link"
+                  >{{ note.info.headline.substring(0, 12) }}...</RouterLink
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
     <div class="copyright">
       <div class="wrapper">
-        <p>© Copyright <span ref="copyrightYear"></span>, Fradinho.</p>
+        <ul>
+          <li>
+            <a
+              :href="others.privacy.link"
+              :aria-label="others.privacy.label"
+              target="_self"
+              >{{ others.privacy.label }}</a
+            >
+          </li>
+          <li>
+            <a
+              :href="others.cookies.link"
+              :aria-label="others.cookies.label"
+              target="_self"
+              >{{ others.cookies.label }}</a
+            >
+          </li>
+          <li>
+            <p>
+              {{ others.copyright.label }} <span ref="copyrightYear"></span>
+              {{ others.copyright.name }}
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   </footer>
@@ -64,71 +112,82 @@ onMounted(() => {
 footer {
   padding: 30px 0 0;
   border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 40px;
   overflow: hidden;
 
-  .footer-top {
+  .logo {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .footer-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+    align-items: flex-start;
 
     @media only screen and (max-width: $mqMobile) {
-      align-items: flex-start;
       flex-direction: column;
+    }
+  }
+
+  .footer-top {
+    @media only screen and (max-width: $mqMobile) {
+      margin-bottom: 40px;
     }
 
     .logo {
-      @media only screen and (max-width: $mqMobile) {
-        margin-bottom: 10px;
-      }
-    }
-
-    .socials {
-      ul {
-        display: flex;
-
-        li {
-          margin-right: 10px;
-
-          &:last-of-type {
-            margin-right: 0;
-          }
-
-          a {
-            display: block;
-
-            img {
-              width: 30px;
-            }
-          }
-        }
-      }
+      margin-bottom: 20px;
     }
   }
 
   .footer-bottom {
+    flex-grow: 1;
+    padding-left: 100px;
+
+    @media only screen and (max-width: $mqMobile) {
+      padding-left: 0;
+    }
+
     nav {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
       @media only screen and (max-width: $mqMobile) {
         flex-direction: column;
       }
 
       ul {
-        @media only screen and (max-width: $mqMobile) {
-          margin-bottom: 50px;
+        margin-right: 30px;
+
+        @media only screen and (max-width: $mqTablet) {
+          margin-bottom: 40px;
+          margin-right: 0;
         }
 
-        &:last-of-type {
+        &:nth-of-type(1) {
+          order: 1;
+        }
+        &:nth-of-type(2) {
+          order: 3;
+        }
+        &:nth-of-type(3) {
+          order: 4;
+
           @media only screen and (max-width: $mqMobile) {
             margin-bottom: 0;
           }
         }
+        &:nth-of-type(4) {
+          order: 2;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
 
         li {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
 
           &:last-of-type {
             margin-bottom: 0;
@@ -156,9 +215,31 @@ footer {
     margin-top: 30px;
     text-align: center;
 
-    p {
-      font-weight: 500;
-      font-size: 14px;
+    .wrapper {
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        li {
+          &:not(:last-child)::after {
+            content: "|";
+            margin: 0 10px;
+          }
+        }
+
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        a,
+        p {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
     }
   }
 }

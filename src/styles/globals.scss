@@ -1,12 +1,74 @@
 @import "variables";
 
 h1,
-h2,
+h2 {
+  font-weight: 900;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 26px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  b {
+    font-weight: 700;
+  }
+  i {
+    font-style: italic;
+  }
+  mark {
+    background-color: mark;
+    color: marktext;
+  }
+  del {
+    text-decoration: line-through;
+  }
+  ins {
+    text-decoration: underline;
+  }
+
+  a {
+    font-weight: 600;
+    color: $blue-light;
+    text-decoration: underline;
+
+    &:hover {
+      color: $white;
+    }
+    &:visited {
+      color: $purple;
+    }
+  }
 }
 
 a,
@@ -20,33 +82,465 @@ a {
 }
 
 .logo {
-  font-weight: 900;
-  font-size: 24px;
+  a {
+    font-weight: 900;
+    font-size: 24px;
+    text-decoration: none;
+  }
 }
 
-[data-dark] {
+.button {
+  display: inline-flex;
+  padding: 12px 18px;
+  border: 2px solid $blue;
+  border-radius: 26px;
+  font-weight: 900;
+  font-size: 16px;
+  color: $white;
+  background-color: $blue;
+
+  &:hover {
+    border-color: $blue-light;
+    background: $blue-light !important;
+    transform: scale(1.05);
+  }
+
+  &.button-secondary {
+    background-color: transparent;
+  }
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 40px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.content-box {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.text {
+  .headline-highlighted {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &::before {
+      content: "";
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      margin-right: 20px;
+      background-image: url("/src/assets/photos/profile-photo.webp");
+      background-size: cover;
+    }
+
+    h2 {
+      width: calc(100% - 120px);
+      margin-bottom: 0;
+    }
+  }
+  .text-highlighted {
+    margin-bottom: 40px;
+    font-size: 20px;
+
+    span {
+      font-weight: 700;
+      font-size: 26px;
+    }
+  }
+  .text-facts {
+    display: grid;
+    gap: 20px;
+
+    @media only screen and (min-width: $mqMobile) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .text-fact {
+      position: relative;
+      padding-left: 30px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-image: url("./src/assets/icons/checklist-marked.png");
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.text-media {
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (min-width: $mqTablet) {
+    align-items: center;
+  }
+  @media only screen and (max-width: $mqTablet) {
+    flex-direction: column;
+  }
+
+  &[direction="right"] {
+    flex-direction: row-reverse;
+
+    @media only screen and (max-width: $mqTablet) {
+      flex-direction: column-reverse;
+    }
+
+    .text-media-item {
+      @media only screen and (min-width: $mqTablet) {
+        width: 50%;
+      }
+
+      &:first-of-type {
+        padding-bottom: 0;
+
+        @media only screen and (min-width: $mqTablet) {
+          padding-left: 30px;
+        }
+      }
+      &:last-of-type {
+        padding-bottom: 30px;
+
+        @media only screen and (min-width: $mqTablet) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .text-media-item {
+    @media only screen and (min-width: $mqTablet) {
+      width: 50%;
+    }
+
+    &:first-of-type {
+      padding-bottom: 30px;
+
+      @media only screen and (min-width: $mqTablet) {
+        padding-bottom: 0;
+      }
+    }
+    &:last-of-type {
+      @media only screen and (min-width: $mqTablet) {
+        padding-left: 30px;
+      }
+    }
+
+    .image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+
+      @media only screen and (max-width: $mqTablet) {
+        max-width: 400px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.notes {
+  min-height: 620px;
+}
+
+.notes-cards {
+  display: grid;
+  gap: clamp(1.25rem, 1vw, 1.25rem);
+
+  @media only screen and (min-width: $mqMobile) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.01);
+
+      .notes-copy {
+        .notes-reading {
+          &::after {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .notes-image {
+      height: 240px;
+    }
+
+    .notes-copy {
+      h3 {
+        margin-bottom: 6px;
+      }
+      .notes-reading {
+        display: flex;
+        align-items: center;
+
+        p {
+          text-decoration: underline;
+        }
+
+        &::after {
+          content: "→";
+          margin-left: 4px;
+          margin-bottom: -4px;
+          font-size: 26px;
+          @include animation;
+        }
+      }
+    }
+  }
+}
+
+.last-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: $mqMobile) {
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    margin-bottom: 0;
+    @media screen and (max-width: $mqMobile) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.notes-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.notes-keywords {
+  span {
+    padding: 4px 10px;
+    border: 2px solid;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 13px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.resource {
+  .resource-items {
+    display: grid;
+    gap: clamp(1.25rem, 1vw, 1.25rem);
+
+    @media only screen and (min-width: $mqMobile) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-item {
+      position: relative;
+      padding: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      @include animation;
+
+      &:hover {
+        transform: scale(1.01);
+
+        .resource-get {
+          &::after {
+            margin-top: -10px;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $mqTablet) {
+          align-items: flex-start;
+          flex-direction: column-reverse;
+        }
+
+        .resource-image {
+          @media only screen and (max-width: $mqTablet) {
+            margin-bottom: 20px;
+          }
+
+          img {
+            width: 120px;
+            height: 120px;
+            padding-left: 20px;
+
+            @media only screen and (max-width: $mqTablet) {
+              padding-left: 0;
+            }
+          }
+        }
+
+        .resource-get {
+          display: flex;
+          align-items: center;
+          color: white;
+
+          p {
+            text-decoration: underline;
+          }
+
+          &::after {
+            content: "→";
+            margin-left: 4px;
+            margin-bottom: -4px;
+            font-size: 26px;
+            transform: rotateZ(-45deg);
+            @include animation;
+          }
+        }
+      }
+    }
+  }
+}
+
+.socials {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        img {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+  }
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  img {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  p {
+    font-weight: 700;
+    font-size: 34px;
+  }
+}
+
+[data-theme="dark"] {
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
-  p,
-  a {
+  p {
     color: $white;
   }
 
   header {
     background-color: $grey-dark;
 
-    nav {
-      .header-menu {
-        .menu {
-          li {
-            a {
-              &:hover,
-              &.router-link-active {
-                border-color: $white;
+    a {
+      color: $white;
+    }
+
+    .header-content {
+      nav {
+        .header-menu {
+          span {
+            @media only screen and (max-width: $mqTablet) {
+              background: $white;
+            }
+          }
+          .menu {
+            @media only screen and (max-width: $mqTablet) {
+              background: $grey-dark;
+            }
+
+            li {
+              a {
+                &:hover,
+                &.router-link-active {
+                  border-color: $white;
+                }
               }
             }
           }
@@ -58,26 +552,8 @@ a {
   footer {
     background-color: $grey-dark;
 
-    .footer-top {
-      .socials {
-        ul {
-          li {
-            a {
-              &:hover {
-                img {
-                  filter: invert(40%) sepia(40%) saturate(40%) hue-rotate(90deg)
-                    brightness(130%) contrast(100%);
-                }
-              }
-
-              img {
-                filter: invert(100%) sepia(100%) saturate(100%)
-                  hue-rotate(90deg) brightness(100%) contrast(100%);
-              }
-            }
-          }
-        }
-      }
+    a {
+      color: $white;
     }
 
     .footer-bottom {
@@ -103,14 +579,283 @@ a {
 
     .copyright {
       background-color: $grey;
+
+      .wrapper {
+        ul {
+          li {
+            &::after {
+              color: $white;
+            }
+          }
+        }
+      }
     }
+  }
+
+  .content-box {
+    background-color: $grey-dark;
+  }
+
+  .socials {
+    ul {
+      li {
+        a {
+          background-color: $grey;
+
+          img {
+            filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(90deg)
+              brightness(100%) contrast(100%);
+          }
+        }
+      }
+    }
+  }
+
+  .resource {
+    .resource-items {
+      .resource-item {
+        background-color: $grey-dark;
+
+        &:hover {
+          background-color: $grey;
+        }
+
+        .resource-get {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .theme-button {
+    button {
+      img {
+        filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(90deg)
+          brightness(100%) contrast(100%);
+      }
+    }
+  }
+
+  .about-timeline {
+    .about-timeline-items {
+      .about-timeline-item {
+        &:before {
+          background-color: $black;
+        }
+
+        .about-timeline-copy {
+          background-color: $grey-dark;
+
+          .about-timeline-keywords {
+            span {
+              border-color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .notes-cards {
+    .notes-card {
+      background-color: $grey-dark;
+
+      &:hover {
+        background-color: $grey;
+      }
+
+      .notes-copy {
+        .notes-reading {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .notes-keywords {
+    span {
+      border-color: $white;
+    }
+  }
+
+  .note {
+    .note-inner {
+      background-color: $grey-dark;
+    }
+  }
+
+  .bio {
+    background-color: $grey-dark;
   }
 }
 
-[data-light] {
-}
+[data-theme="light"] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: $black;
+  }
 
-.wrapper {
-  width: 90%;
-  margin: auto;
+  header {
+    background-color: $white;
+
+    a {
+      color: $black;
+    }
+
+    .header-content {
+      nav {
+        .header-menu {
+          span {
+            @media only screen and (max-width: $mqTablet) {
+              background: $black;
+            }
+          }
+          .menu {
+            @media only screen and (max-width: $mqTablet) {
+              background: $white;
+            }
+
+            li {
+              a {
+                &:hover,
+                &.router-link-active {
+                  border-color: $black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $white;
+
+    a {
+      color: $black;
+    }
+
+    .footer-bottom {
+      nav {
+        ul {
+          li {
+            .footer-link-title {
+              &:hover {
+                border-color: $black;
+              }
+            }
+            .footer-link {
+              color: $black;
+
+              &:hover {
+                border-color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      background-color: $grey-lighter;
+
+      .wrapper {
+        ul {
+          li {
+            &::after {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content-box {
+    background-color: $white;
+  }
+
+  .socials {
+    ul {
+      li {
+        a {
+          background-color: $grey-lighter;
+        }
+      }
+    }
+  }
+
+  .resource {
+    .resource-items {
+      .resource-item {
+        background-color: $white;
+
+        &:hover {
+          background-color: $grey-lighter;
+        }
+
+        .resource-get {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .about-timeline {
+    .about-timeline-items {
+      .about-timeline-item {
+        &:before {
+          background-color: $white;
+        }
+
+        .about-timeline-copy {
+          background-color: $white;
+
+          .about-timeline-keywords {
+            span {
+              border-color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .notes-cards {
+    .notes-card {
+      background-color: $white;
+
+      &:hover {
+        background-color: $grey-lighter;
+      }
+
+      .notes-copy {
+        .notes-reading {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .notes-keywords {
+    span {
+      border-color: $black;
+    }
+  }
+
+  .note {
+    .note-inner {
+      background-color: $white;
+    }
+  }
+
+  .bio {
+    background-color: $white;
+  }
 }

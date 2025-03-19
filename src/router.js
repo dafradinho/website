@@ -1,36 +1,49 @@
-import { createWebHashHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 import Home from "./components/Home.vue";
 import About from "./components/About.vue";
 import Notes from "./components/Notes.vue";
-import Projects from "./components/Projects.vue";
-import Podcast from "./components/Podcast.vue";
+import NoteDetail from "./components/NoteDetail.vue";
+import Resources from "./components/Resources.vue";
 import Newsletter from "./components/Newsletter.vue";
+import Privacy from "./components/Privacy.vue";
+import Cookies from "./components/Cookies.vue";
+import NotFound from "./components/NotFound.vue";
 
 const routes = [
-  { path: "/", component: Home, meta: { title: "Fradinho - Homepage" } },
-  { path: "/about", component: About, meta: { title: "Fradinho - About" } },
-  { path: "/notes", component: Notes, meta: { title: "Fradinho - Notes" } },
+  { path: "/", component: Home },
+  { path: "/about", component: About },
+  { path: "/notes", component: Notes },
   {
-    path: "/projects",
-    component: Projects,
-    meta: { title: "Fradinho - Projects" },
+    path: "/notes/:id",
+    name: "note-detail",
+    component: NoteDetail,
+    props: true,
   },
-  {
-    path: "/podcast",
-    component: Podcast,
-    meta: { title: "Fradinho - Podcast" },
-  },
-  {
-    path: "/newsletter",
-    component: Newsletter,
-    meta: { title: "Fradinho - Newsletter" },
-  },
+  { path: "/resources", component: Resources },
+  { path: "/newsletter", component: Newsletter },
+  { path: "/privacy-policy", component: Privacy },
+  { path: "/cookies-policy", component: Cookies },
+  { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
+  scrollBehavior(to, savedPosition) {
+    if (to.name === "note-detail") {
+      return { top: 0 };
+    } else if (to.hash) {
+      return {
+        el: to.hash,
+        top: 20,
+      };
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
 });
 
 export default router;

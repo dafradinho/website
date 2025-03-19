@@ -1,0 +1,32 @@
+{
+  "info": {
+    "headline": "Grid Headline Two",
+    "keywords": ["javascript", "html", "css"],
+    "date": "February 8, 2025"
+  },
+  "image": {
+    "src": "/src/assets/notes/cat.jpeg",
+    "alt": "Cat"
+  },
+  "copy": {
+    "texts": [
+      {
+        "type": "text",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "type": "image",
+        "content": "/src/assets/notes/cat.jpeg",
+        "alt": "Cat"
+      },
+      {
+        "type": "text",
+        "content": "<h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>"
+      },
+      {
+        "type": "text",
+        "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      }
+    ]
+  }
+}

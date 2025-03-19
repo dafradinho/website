@@ -1,25 +1,68 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import router from "./../router";
-import json from "../json/navigation.json";
+import navigation from "../json/navigation.json";
 
 const data = ref({
-  json,
+  navigation,
 });
+
+const { logo, navigationHeader, others } = data.value.navigation;
 
 const refreshPage = () => {
   router.go();
+};
+
+const setCookie = (name, value, days) => {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const secureFlag = location.protocol === "https:" ? ";Secure" : "";
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/${secureFlag}`;
+};
+
+const getCookie = (name) => {
+  const nameEQ = `${name}=`;
+  const cookies = document.cookie.split(";");
+  for (let cookie of cookies) {
+    cookie = cookie.trim();
+    if (cookie.startsWith(nameEQ)) {
+      return cookie.substring(nameEQ.length);
+    }
+  }
+  return null;
+};
+
+const savedTheme = getCookie("userTheme");
+const currentTheme = ref(
+  savedTheme || document.body.getAttribute("data-theme") || "light"
+);
+
+document.body.setAttribute("data-theme", currentTheme.value);
+
+const themeImage = computed(() => {
+  return currentTheme.value === "dark"
+    ? "/src/assets/icons/sun.svg"
+    : "/src/assets/icons/moon.png";
+});
+
+const updateTheme = () => {
+  const newTheme = currentTheme.value === "dark" ? "light" : "dark";
+  document.body.setAttribute("data-theme", newTheme);
+  currentTheme.value = newTheme;
+
+  setCookie("userTheme", newTheme, 365);
 };
 </script>
 
 <template>
   <header>
+    <div class="skip-to-content" :aria-label="others.skip.label">
+      <a :href="others.skip.link">{{ others.skip.label }}</a>
+    </div>
     <div class="wrapper">
       <div class="header-content">
         <p class="logo">
-          <RouterLink :to="data.json.logo.link">{{
-            data.json.logo.title
-          }}</RouterLink>
+          <RouterLink :to="logo.link">{{ logo.title }}</RouterLink>
         </p>
         <nav role="navigation">
           <div class="header-menu">
@@ -29,10 +72,15 @@ const refreshPage = () => {
             <span></span>
 
             <ul class="menu">
-              <li v-for="item in data.json.navigation" @click="refreshPage">
+              <li v-for="item in navigationHeader" @click="refreshPage">
                 <RouterLink :to="item.link">{{ item.title }}</RouterLink>
               </li>
             </ul>
+          </div>
+          <div class="theme-button">
+            <button @click="updateTheme">
+              <img :src="themeImage" alt="Toggle Theme" />
+            </button>
           </div>
         </nav>
       </div>
@@ -44,9 +92,34 @@ const refreshPage = () => {
 @import "../styles/variables.scss";
 
 header {
+  position: relative;
   padding: 20px 0;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+
+  .skip-to-content {
+    &:focus-within {
+      a {
+        left: 0;
+      }
+    }
+    a {
+      position: absolute;
+      top: 12px;
+      left: -100%;
+      padding: 12px 18px;
+      border: 2px solid $grey;
+      border-radius: 26px;
+      background: $grey;
+      font-weight: 900;
+      font-size: 16px;
+    }
+  }
+
+  .logo {
+    margin-bottom: 0;
+    line-height: 1;
+  }
 
   .header-content {
     display: flex;
@@ -54,27 +127,27 @@ header {
     align-items: center;
 
     nav {
+      display: flex;
+      align-items: center;
+
       .header-menu {
+        position: relative;
+        margin-right: 20px;
+
         input {
           display: none;
 
           @media only screen and (max-width: $mqTablet) {
+            position: absolute;
             display: block;
+            top: 0;
+            right: 0;
             width: 36px;
             height: 30px;
-            position: absolute;
-            top: 24px;
-            right: 6%;
-            cursor: pointer;
+            margin: 0;
             opacity: 0;
             z-index: 2;
-
             cursor: pointer;
-
-            opacity: 0;
-            z-index: 2;
-
-            -webkit-touch-callout: none;
           }
         }
 
@@ -85,8 +158,6 @@ header {
             height: 4px;
             margin-bottom: 6px;
             position: relative;
-
-            background: #cdcdcd;
             border-radius: 3px;
 
             z-index: 1;
@@ -126,16 +197,16 @@ header {
             position: absolute;
             flex-direction: column;
             align-items: flex-end;
-            top: 84px;
-            right: 10px;
+            top: 46px;
+            right: -129%;
             width: 160px;
             padding: 20px;
-            border-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
             margin: auto;
-
-            background: $grey-dark;
             list-style-type: none;
             -webkit-font-smoothing: antialiased;
+            z-index: 2;
           }
 
           li {
@@ -160,6 +231,23 @@ header {
               font-weight: 500;
               font-size: 18px;
             }
+          }
+        }
+      }
+      .theme-button {
+        button {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+          border: none;
+          color: inherit;
+          background: none;
+          cursor: pointer;
+
+          img {
+            width: 24px;
+            height: 24px;
+            margin-top: 2px;
           }
         }
       }

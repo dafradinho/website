@@ -3,7 +3,25 @@
     "title": "Fradinho",
     "link": "/"
   },
-  "navigation": [
+  "navigationHeader": [
+    {
+      "title": "About",
+      "link": "/about"
+    },
+    {
+      "title": "Notes",
+      "link": "/notes"
+    },
+    {
+      "title": "Resources",
+      "link": "/resources"
+    },
+    {
+      "title": "Newsletter",
+      "link": "/newsletter"
+    }
+  ],
+  "navigationFooter": [
     {
       "title": "About",
       "link": "/about",
@@ -23,24 +41,20 @@
       ]
     },
     {
-      "title": "Notes",
-      "link": "/notes"
-    },
-    {
-      "title": "Projects",
-      "link": "/projects"
-    },
-    {
-      "title": "Podcast",
-      "link": "/podcast",
+      "title": "Resources",
+      "link": "/resources",
       "sections": [
         {
-          "title": "Concept",
-          "link": "/podcast#concept"
+          "title": "Overlays",
+          "link": "/resources#overlays"
         },
         {
-          "title": "When",
-          "link": "/podcast#when"
+          "title": "Scripts",
+          "link": "/resources#scripts"
+        },
+        {
+          "title": "Others",
+          "link": "/resources#others"
         }
       ]
     },
@@ -49,11 +63,15 @@
       "link": "/newsletter",
       "sections": [
         {
-          "title": "Why",
-          "link": "/newsletter#why"
+          "title": "Concept",
+          "link": "/newsletter"
         },
         {
-          "title": "Subscribe",
+          "title": "Reason",
+          "link": "/newsletter#reason"
+        },
+        {
+          "title": "Subscribe Soon",
           "link": "/newsletter#subscribe"
         }
       ]
@@ -61,34 +79,55 @@
   ],
   "socials": [
     {
-      "source": "github.svg",
+      "source": "/src/assets/icons/github.svg",
       "link": "https://github.com/dafradinho",
       "alt": "GitHub Logo"
     },
     {
-      "source": "linkedin.svg",
+      "source": "/src/assets/icons/linkedin.svg",
       "link": "https://github.com/dafradinho",
       "alt": "LinkedIn Logo"
     },
     {
-      "source": "youtube.svg",
+      "source": "/src/assets/icons/youtube.svg",
       "link": "https://github.com/dafradinho",
       "alt": "YouTube Logo"
     },
     {
-      "source": "instagram.svg",
+      "source": "/src/assets/icons/instagram.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Instagram Logo"
     },
     {
-      "source": "twitterx.svg",
+      "source": "/src/assets/icons/twitterx.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Twitter Logo"
     },
     {
-      "source": "twitch.svg",
+      "source": "/src/assets/icons/twitch.svg",
       "link": "https://github.com/dafradinho",
       "alt": "Twitch Logo"
     }
-  ]
+  ],
+  "others": {
+    "skip": {
+      "label": "Skip To Content",
+      "link": "#first-component"
+    },
+    "notes": {
+      "label": "Notes"
+    },
+    "privacy": {
+      "label": "Privacy Policy",
+      "link": "/privacy-policy"
+    },
+    "cookies": {
+      "label": "Cookie Policy",
+      "link": "/cookies-policy"
+    },
+    "copyright": {
+      "label": "© Copyright",
+      "name": ", Fradinho."
+    }
+  }
 }

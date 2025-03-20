@@ -6,8 +6,8 @@ import Notes from "./components/Notes.vue";
 import NoteDetail from "./components/NoteDetail.vue";
 import Resources from "./components/Resources.vue";
 import Newsletter from "./components/Newsletter.vue";
-import Privacy from "./components/Privacy.vue";
-import Cookies from "./components/Cookies.vue";
+import PrivacyPolice from "./components/Privacy.vue";
+import CookiesPolice from "./components/Cookies.vue";
 import NotFound from "./components/NotFound.vue";
 
 const routes = [
@@ -22,8 +22,8 @@ const routes = [
   },
   { path: "/resources", component: Resources },
   { path: "/newsletter", component: Newsletter },
-  { path: "/privacy-policy", component: Privacy },
-  { path: "/cookies-policy", component: Cookies },
+  { path: "/privacy-policy", component: PrivacyPolice },
+  { path: "/cookies-policy", component: CookiesPolice },
   { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
 ];
 
@@ -34,10 +34,15 @@ const router = createRouter({
     if (to.name === "note-detail") {
       return { top: 0 };
     } else if (to.hash) {
-      return {
-        el: to.hash,
-        top: 20,
-      };
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            el: to.hash,
+            top: 20, // Add some offset if needed
+            behavior: "smooth", // Optional: Smooth scrolling
+          });
+        }, 300); // Delay to ensure the element is rendered
+      });
     } else if (savedPosition) {
       return savedPosition;
     } else {

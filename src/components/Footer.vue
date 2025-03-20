@@ -27,7 +27,7 @@ const copyrightYear = ref();
 
 <template>
   <footer>
-    <div class="wrapper">
+    <div class="wrapper-hf">
       <div class="footer-wrapper">
         <div class="footer-top">
           <p class="logo">
@@ -79,19 +79,19 @@ const copyrightYear = ref();
       <div class="wrapper">
         <ul>
           <li>
-            <a
-              :href="others.privacy.link"
+            <RouterLink
+              :to="others.privacy.link"
               :aria-label="others.privacy.label"
               target="_self"
-              >{{ others.privacy.label }}</a
+              >{{ others.privacy.label }}</RouterLink
             >
           </li>
           <li>
-            <a
-              :href="others.cookies.link"
+            <RouterLink
+              :to="others.cookies.link"
               :aria-label="others.cookies.label"
               target="_self"
-              >{{ others.cookies.label }}</a
+              >{{ others.cookies.label }}</RouterLink
             >
           </li>
           <li>
@@ -221,10 +221,21 @@ footer {
         justify-content: center;
         align-items: center;
 
+        @media only screen and (max-width: $mqMobile) {
+          flex-direction: column;
+        }
+
         li {
+          &:not(:last-child) {
+            @media only screen and (max-width: $mqMobile) {
+              margin-bottom: 10px;
+            }
+          }
           &:not(:last-child)::after {
-            content: "|";
-            margin: 0 10px;
+            @media only screen and (min-width: $mqMobile) {
+              content: "|";
+              margin: 0 10px;
+            }
           }
         }
 

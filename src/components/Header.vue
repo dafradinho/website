@@ -52,14 +52,24 @@ const updateTheme = () => {
 
   setCookie("userTheme", newTheme, 365);
 };
+
+const scrollToContent = (event) => {
+  const target = document.querySelector("#first-component");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  event.target.blur();
+};
 </script>
 
 <template>
   <header>
     <div class="skip-to-content" :aria-label="others.skip.label">
-      <a :href="others.skip.link">{{ others.skip.label }}</a>
+      <a href="#first-component" @click.prevent="scrollToContent">{{
+        others.skip.label
+      }}</a>
     </div>
-    <div class="wrapper">
+    <div class="wrapper-hf">
       <div class="header-content">
         <p class="logo">
           <RouterLink :to="logo.link">{{ logo.title }}</RouterLink>
@@ -130,9 +140,18 @@ header {
       display: flex;
       align-items: center;
 
+      @media only screen and (max-width: $mqTablet) {
+        flex-direction: row-reverse;
+      }
+
       .header-menu {
         position: relative;
         margin-right: 20px;
+
+        @media only screen and (max-width: $mqTablet) {
+          margin-right: 0;
+          margin-left: 20px;
+        }
 
         input {
           display: none;
@@ -198,7 +217,7 @@ header {
             flex-direction: column;
             align-items: flex-end;
             top: 46px;
-            right: -129%;
+            right: 0;
             width: 160px;
             padding: 20px;
             border-bottom-left-radius: 10px;

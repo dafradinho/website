@@ -29,109 +29,111 @@ const lastTwoNotes = computed(() => {
 </script>
 
 <template>
-  <section class="note wrapper" id="first-component">
-    <div class="note-wrapper" v-if="note">
-      <div class="note-inner">
-        <div class="note-header">
-          <div class="notes-image">
-            <img :src="note.image.src" :alt="note.image.alt" />
-          </div>
-          <h1>{{ note.info.headline }}</h1>
-          <p>{{ note.info.date }}</p>
-          <p class="notes-keywords">
-            <span v-for="keyword in note.info.keywords">{{ keyword }}</span>
-          </p>
-        </div>
-        <div class="note-content">
-          <div v-for="item in note.copy.texts" :key="item.id">
-            <p
-              v-if="item.type === 'text'"
-              v-html="sanitizeHtml(item.content)"
-            ></p>
-            <img
-              v-else-if="item.type === 'image'"
-              :src="item.content"
-              :alt="item.alt"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="bio">
-        <div class="bio-image">
-          <img :src="bio.image.src" :alt="bio.image.alt" />
-        </div>
-        <div class="bio-copy">
-          <p>{{ bio.text }}</p>
-          <div class="socials">
-            <ul>
-              <li v-for="social in socials" :key="social.link">
-                <a
-                  :href="social.link"
-                  :aria-label="social.source"
-                  target="_blank"
-                  ><img :src="social.source" :alt="social.alt"
-                /></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="notes-last">
-        <div class="last-header">
-          <h2>{{ others.recent }}</h2>
-          <a
-            :href="others.explore.link"
-            :target="others.explore.target"
-            :aria-label="others.explore.text"
-            class="button"
-            v-if="others.explore.text"
-            >{{ others.explore.text }}</a
-          >
-        </div>
-        <div class="notes-cards">
-          <router-link
-            :to="{ name: 'note-detail', params: { id: lastNote.filename } }"
-            class="notes-card"
-            v-for="lastNote in lastTwoNotes"
-            :key="lastNote.filename"
-          >
+  <article>
+    <section class="note wrapper" id="first-component">
+      <div class="note-wrapper" v-if="note">
+        <div class="note-inner">
+          <div class="note-header">
             <div class="notes-image">
+              <img :src="note.image.src" :alt="note.image.alt" />
+            </div>
+            <h1>{{ note.info.headline }}</h1>
+            <p>{{ note.info.date }}</p>
+            <p class="notes-keywords">
+              <span v-for="keyword in note.info.keywords">{{ keyword }}</span>
+            </p>
+          </div>
+          <div class="note-content">
+            <div v-for="item in note.copy.texts" :key="item.id">
+              <p
+                v-if="item.type === 'text'"
+                v-html="sanitizeHtml(item.content)"
+              ></p>
               <img
-                loading="lazy"
-                :src="lastNote.image.src"
-                :alt="lastNote.image.alt"
+                v-else-if="item.type === 'image'"
+                :src="item.content"
+                :alt="item.alt"
               />
             </div>
-            <div class="notes-copy">
-              <h3>{{ lastNote.info.headline }}</h3>
-              <p>{{ lastNote.info.date }}</p>
-              <p class="notes-keywords">
-                <span v-for="keyword in lastNote.info.keywords">{{
-                  keyword
-                }}</span>
-              </p>
-              <p>{{ lastNote.copy.texts[0].content.substring(0, 150) }}...</p>
-              <div class="notes-reading">
-                <p>{{ others.continue }}</p>
-              </div>
+          </div>
+        </div>
+        <div class="bio">
+          <div class="bio-image">
+            <img :src="bio.image.src" :alt="bio.image.alt" />
+          </div>
+          <div class="bio-copy">
+            <p>{{ bio.text }}</p>
+            <div class="socials">
+              <ul>
+                <li v-for="social in socials" :key="social.link">
+                  <a
+                    :href="social.link"
+                    :aria-label="social.source"
+                    target="_blank"
+                    ><img :src="social.source" :alt="social.alt"
+                  /></a>
+                </li>
+              </ul>
             </div>
-          </router-link>
+          </div>
+        </div>
+        <div class="notes-last">
+          <div class="last-header">
+            <h2>{{ others.recent }}</h2>
+            <a
+              :href="others.explore.link"
+              :target="others.explore.target"
+              :aria-label="others.explore.text"
+              class="button"
+              v-if="others.explore.text"
+              >{{ others.explore.text }}</a
+            >
+          </div>
+          <div class="notes-cards">
+            <router-link
+              :to="{ name: 'note-detail', params: { id: lastNote.filename } }"
+              class="notes-card"
+              v-for="lastNote in lastTwoNotes"
+              :key="lastNote.filename"
+            >
+              <div class="notes-image">
+                <img
+                  loading="lazy"
+                  :src="lastNote.image.src"
+                  :alt="lastNote.image.alt"
+                />
+              </div>
+              <div class="notes-copy">
+                <h3>{{ lastNote.info.headline }}</h3>
+                <p>{{ lastNote.info.date }}</p>
+                <p class="notes-keywords">
+                  <span v-for="keyword in lastNote.info.keywords">{{
+                    keyword
+                  }}</span>
+                </p>
+                <p>{{ lastNote.copy.texts[0].content.substring(0, 150) }}...</p>
+                <div class="notes-reading">
+                  <p>{{ others.continue }}</p>
+                </div>
+              </div>
+            </router-link>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="not-found" v-else>
-      <img src="/src/assets/error/empty-state.png" alt="" />
-      <p>Note not found</p>
-      <a
-        :href="others.explore.link"
-        :target="others.explore.target"
-        :aria-label="others.explore.text"
-        class="button"
-        v-if="others.explore.text"
-        >{{ others.explore.text }}</a
-      >
-    </div>
-  </section>
+      <div class="not-found" v-else>
+        <img src="/src/assets/error/empty-state.png" alt="" />
+        <p>Note not found</p>
+        <a
+          :href="others.explore.link"
+          :target="others.explore.target"
+          :aria-label="others.explore.text"
+          class="button"
+          v-if="others.explore.text"
+          >{{ others.explore.text }}</a
+        >
+      </div>
+    </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>

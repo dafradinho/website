@@ -110,9 +110,18 @@ a {
   }
 }
 
+.wrapper-hf {
+  width: 90%;
+  margin: auto;
+}
+
 .wrapper {
   width: 90%;
   margin: auto;
+
+  @media only screen and (max-width: $mqTablet) {
+    width: 100%;
+  }
 }
 
 section {

@@ -6,10 +6,11 @@ import Footer from "./components/Footer.vue";
 
 <template>
   <div class="container">
-    <CookiesBanner />
-    <Header />
-    <RouterView />
-    <Footer />
+    <!--<CookiesBanner />-->
+    <!--<Header />-->
+    <!--<RouterView />-->
+    <!--<Footer />-->
+    <h1>Working on the blog. Website will be back next year.</h1>
   </div>
 </template>
 
